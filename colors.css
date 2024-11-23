@@ -75,6 +75,42 @@ main .container {
   border-radius: 4px;
 }
 
+.text-img-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 400px;
+  background-color: var(--color-secondary);
+  border-radius: 10px;
+}
+
+.carousel-item {
+  transform: scale(0.95);
+  transition: transform 0.6s ease-in-out;
+}
+
+.carousel-item:hover {
+  transform: scale(1);
+}
+
+.text-img-container img {
+  display: block;
+  width: 50%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.text-img-container div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  padding: 16px;
+  width: 50%;
+  background-color: var(--color-secondary);
+}
+
 /* Animación */
 .fade-in-slide {
   opacity: 0;
@@ -84,12 +120,12 @@ main .container {
 
 @keyframes fadeSlideIn {
   from {
-      opacity: 0;
-      transform: translateY(150px);
+    opacity: 0;
+    transform: translateY(150px);
   }
   to {
-      opacity: 1;
-      transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
