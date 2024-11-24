@@ -61,7 +61,7 @@
 
                 <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel"
                     data-bs-interval="3000">
-                    
+
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <div class="text-img-container">
@@ -82,6 +82,7 @@
                                 <div>
                                     <h2 class="mb-3">Otra Imagen</h2>
                                     <p>Descripción o texto relacionado con la segunda imagen.</p>
+                                    <button class="game-button" data-slug="metaphor-refantazio">Ver detalles</button>
                                 </div>
                             </div>
                         </div>
@@ -92,6 +93,7 @@
                                 <div>
                                     <h2 class="mb-3">Imagen 3</h2>
                                     <p>Texto explicativo o complementario para la tercera imagen.</p>
+                                    <button class="game-button" data-slug="stalker-2">Ver detalles</button>
                                 </div>
                             </div>
                         </div>
@@ -109,8 +111,8 @@
 
             </div>
 
-            <div class="w-100 bg-light text-center mb-4 rounded shadow">
-                -------------
+            <div class="separate-container">
+                <h5>Nuestro sitio con las ultimas novedades en titulos</h5>
             </div>
 
             <div class="row g-4">
@@ -144,11 +146,52 @@
                         <img src="https://via.placeholder.com/200" alt="Imagen 4">
                     </div>
                 </div>
-                <!-- Agrega más contenedores según sea necesario -->
+                <div class="col-md-4 col-sm-6 fade-in-slide">
+                    <div class="custom-card">
+                        <img src="https://via.placeholder.com/200" alt="Imagen 4">
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 fade-in-slide">
+                    <div class="custom-card">
+                        <img src="https://via.placeholder.com/200" alt="Imagen 4">
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 fade-in-slide">
+                    <div class="custom-card">
+                        <img src="https://via.placeholder.com/200" alt="Imagen 4">
+                    </div>
+                </div>
+            </div>
+
+            <div class="separate-container-2">
+                <h2>Marcas que se encuentran participando dentro de esta pagina web con sus juegos</h2>
+                <div>
+                    <img src="img/playstation.svg" alt="playstation" width="100" height="100"/>
+                    <img src="img/xbox.svg" alt="discord" width="100" height="100"/>
+                    <img src="img/steam.svg" alt="steam" width="100" height="100"/>
+                </div>
+                <div>
+                    <img src="img/epic_games.svg" alt="playstation" width="100" height="100"/>
+                    <img src="img/discord.svg" alt="playstation" width="100" height="100"/>
+                    <img src="img/microsoft.svg" alt="playstation" width="100" height="100"/>
+                    <img src="img/blizzard.svg" alt="playstation" width="100" height="100"/>
+                </div>
+                <div>
+                    <img src="img/activision.svg" alt="playstation" width="100" height="100"/>
+                    <img src="img/nintendo.svg" alt="playstation" width="100" height="100"/>
+                    <img src="img/ubi.svg" alt="playstation" width="100" height="100"/>
+                </div>
+                <div>
+                    <img src="img/tencent.svg" alt="playstation" width="100" height="100"/>
+                    <img src="img/EA.svg" alt="playstation" width="100" height="100"/>
+                </div>
             </div>
         </div>
     </main>
 
+    <footer>
+
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
@@ -156,6 +199,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+        <script type="module" src="JS/getGameBySlug.js"></script>
 
 </body>
 
