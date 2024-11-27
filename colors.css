@@ -101,23 +101,44 @@ main .container {
 }
 
 .custom-card {
+  color: #e84545b7;
   border: 2px solid var(--color-secondary);
   border-radius: 8px;
-  background-color: var(--color-primary);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
   text-align: center;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition: transform 0.2s ease-in-out, opacity 0.3s ease-in-out;
+  overflow: hidden;
+  margin: 10px;
+  user-select: none;
+  cursor: pointer;
+}
+
+.custom-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block; 
+}
+
+.custom-card:hover {
+  transform: scale(1.1);
+  color: #e84545;
 }
 
 .custom-card img {
   max-width: 100%;
   height: auto;
-  border-radius: 4px;
+  border-radius: 5px;
   margin-bottom: 10px;
+  width: 415px;
 }
 
 .custom-card p {
-  color: var(--color-secondary);
+  margin: 5px;
+}
+
+.custom-card h5 {
+  color: grey;
+  font-size: 14px;
 }
 
 .text-img-container {
