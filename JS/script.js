@@ -20,18 +20,29 @@ async function displayGames(page = 1) {
   const games = await obtainGames(page, 20);
   const gameList = document.getElementById("game-list");
 
-  games.forEach((game) => {
-    const div = document.createElement("div");
-    div.classList.add("game");
-    div.innerHTML = `
-        <h3>${game.name}</h3>
-        <img src="${game.background_image}" alt="${game.name}">
-        <p>Plataformas: ${game.platforms
-          .map((platform) => platform.platform.name)
-          .join(", ")}</p>
+  setTimeout(() => {
+    // Limpia los placeholders //
+    gameList.innerHTML = "";
+  
+    // Inserta las tarjetas reales
+    games.forEach((game) => {
+      const div = document.createElement("div");
+      div.classList.add("col-md-4", "mb-4", "d-flex", "justify-content-center");
+
+      // Estructura de cada card como anchor
+      div.innerHTML = `
+        <a href="/gamesDetails.html?id=${game.id}" class="text-decoration-none" data-id="${game.id}">
+          <div class="card game-card text-bg-dark">
+            <img src="${game.background_image}" alt="${game.name}" class="card-img">
+            <div class="card-img-overlay d-flex align-items-center justify-content-center">
+              <h3 class="card-title text-center">${game.name}</h3>
+            </div>
+          </div>
+        </a>
       `;
-    gameList.appendChild(div);
-  });
+      gameList.appendChild(div);
+    });
+  }, 2000);
 }
 
 displayGames(currentPage); //Muestra juegos de cantidad de paginas actuales//
@@ -41,5 +52,33 @@ const loadMoreButton = document.getElementById("load-more"); //Traigo el element
 loadMoreButton.addEventListener("click", () => {
   currentPage += 1;
   displayGames(currentPage);
+  updateButtonState();
+});
+
+const loadLessButton = document.getElementById("load-less"); //Traigo el elemento boton de cargar mas//
+
+loadLessButton.addEventListener("click", () => {
+  currentPage -= 1;
+  displayGames(currentPage);
+  updateButtonState();
 });
 //Agrega un evento, aumenta la paginación y llama nuevamente la función//
+
+function updateButtonState() {
+  // Si la página actual es la primera, deshabilitamos el botón "cargar menos"
+  if (currentPage === 1) {
+    loadLessButton.disabled = true;
+    loadLessButton.classList.add("disabled"); // Añade una clase para estilos (opcional)
+  } else {
+    loadLessButton.disabled = false;
+    loadLessButton.classList.remove("disabled"); // Remueve la clase
+  }
+}
+
+loadLessButton.addEventListener("click", () => {
+  if (currentPage > 1) {
+    currentPage -= 1;
+    displayGames(currentPage);
+    updateButtonState(); // Actualiza el estado del botón
+  }
+});
