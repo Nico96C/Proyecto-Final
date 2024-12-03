@@ -35,23 +35,25 @@ document.addEventListener("DOMContentLoaded", function () {
       // Renderiza los detalles en el contenedor
       const gameDetailsContainer = document.getElementById("game-details");
       gameDetailsContainer.innerHTML = `
-        <div>
-          <img src="${data.background_image}" alt="${
-        data.name
-      }" class="card-img-top">
+        <div class="container">
+        <div class="game-details-side">
+          <img src="${data.background_image}" alt="${data.name}" class="card-img-top">
           <div class="card-body">
-            <h2>${data.name}</h2>
-            <p><strong>Descripción:</strong> ${
-              data.description_raw || "No disponible"
-            }</p>
+            <h1>${data.name}</h1>
+            <h2 class="metacritic-media"> ${data.metacritic} </h2>
             <p><strong>Fecha de lanzamiento:</strong> ${
               data.released || "No disponible"
             }</p>
             <p><strong>Rating:</strong> ${data.rating || "No disponible"}</p>
           </div>
         </div>
+          <p><strong>Descripción:</strong> ${
+            data.description_raw || "No disponible"
+          }</p>
+        </div>
       `;
     });
   } else {
+    console.log("No se proporcionó un ID de juego en la URL.");
   }
 });

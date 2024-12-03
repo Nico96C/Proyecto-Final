@@ -27,6 +27,18 @@ main {
   background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
 }
 
+footer {
+  width: 100%;
+  min-height: 15vh;
+  background-color: var(--color-secondary);
+  border-top: 2px solid black;
+}
+
+button {
+  border: none;
+  background-color: transparent !important;
+}
+
 /* INDEX */
 
 .navbar {
@@ -36,6 +48,8 @@ main {
 main .container {
   margin-top: 3rem !important;
   margin-bottom: 3rem !important;
+  text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black;
+  color: black;
 }
 
 .container .navbar-brand {
@@ -70,7 +84,7 @@ main .container {
 }
 
 .main-container::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -107,7 +121,7 @@ main .container {
 .custom-card-link {
   text-decoration: none;
   color: inherit;
-  display: block; 
+  display: block;
 }
 
 .custom-card:hover {
@@ -172,14 +186,17 @@ main .container {
   margin-top: 4.5rem;
 }
 
+.carousel-inner {
+  user-select: none !important;
+}
+
 .separate-container-2 h2 {
   padding: 0.5rem;
   color: var(--color-secondary);
-  text-shadow: 
-    -1px -1px 0 var(--color-primary), /* Sombra superior izquierda */
-    1px -1px 0 var(--color-primary),  /* Sombra superior derecha */
-    -1px 1px 0 var(--color-primary),  /* Sombra inferior izquierda */
-    1px 1px 0 var(--color-primary);   /* Sombra inferior derecha */
+  text-shadow: -1px -1px 0 var(--color-primary),
+    /* Sombra superior izquierda */ 1px -1px 0 var(--color-primary),
+    /* Sombra superior derecha */ -1px 1px 0 var(--color-primary),
+    /* Sombra inferior izquierda */ 1px 1px 0 var(--color-primary); /* Sombra inferior derecha */
   font-size: 3rem;
   margin-bottom: 2rem;
   user-select: none;
@@ -188,11 +205,10 @@ main .container {
 .separate-container h1 {
   padding: 0.5rem;
   color: var(--color-secondary);
-  text-shadow: 
-    -1px -1px 0 var(--color-primary), /* Sombra superior izquierda */
-    1px -1px 0 var(--color-primary),  /* Sombra superior derecha */
-    -1px 1px 0 var(--color-primary),  /* Sombra inferior izquierda */
-    1px 1px 0 var(--color-primary);   /* Sombra inferior derecha */
+  text-shadow: -1px -1px 0 var(--color-primary),
+    /* Sombra superior izquierda */ 1px -1px 0 var(--color-primary),
+    /* Sombra superior derecha */ -1px 1px 0 var(--color-primary),
+    /* Sombra inferior izquierda */ 1px 1px 0 var(--color-primary); /* Sombra inferior derecha */
   user-select: none;
   font-size: 3rem;
 }
@@ -201,11 +217,17 @@ main .container {
   text-shadow: 0 0 2px black, 0 0 2px black, 0 0 2px black;
 }
 
-/* Animación */
 .fade-in-slide {
   opacity: 0;
   transform: translateY(50px);
   animation: fadeSlideIn 1s ease-out forwards;
+}
+
+.company-icon {
+  display: flex;
+  gap: 3em;
+  justify-content: center;
+  margin-top: 2em;
 }
 
 @keyframes fadeSlideIn {
@@ -220,7 +242,8 @@ main .container {
 }
 
 @keyframes fadeInOut {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0;
   }
   50% {
@@ -282,7 +305,7 @@ main .container {
   border: none;
   overflow: hidden;
   position: relative;
-  height: 100%;
+  height: 100% !important;
 }
 
 .game-card .card-img {
@@ -293,7 +316,7 @@ main .container {
 }
 
 .game-card:hover {
-  transform: perspective(1000px) rotateX(6deg) rotateY(-6deg);
+  transform: perspective(1000px) rotateX(7deg) rotateY(-7deg);
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
   cursor: pointer;
 }
@@ -306,4 +329,31 @@ main .container {
   object-fit: cover;
   height: 100%;
   filter: brightness(70%);
+}
+
+/* GAME DETAILS */
+
+.container .game-details-side {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: var(--color-secondary);
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.metacritic-media {
+  padding: 1em;
+  border-radius: 0.5em;
+  border: 1px solid black;
+}
+
+.card-img-top {
+  width: 600px !important;
+  height: 400px;
 }
