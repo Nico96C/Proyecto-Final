@@ -12,6 +12,11 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Bokor&family=Protest+Revolution&family=Rowdies:wght@300;400;700&display=swap"
         rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bokor&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Protest+Revolution&family=Rowdies:wght@300;400;700&display=swap"
+        rel="stylesheet">
     <title>Principal</title>
 </head>
 
@@ -42,10 +47,8 @@
     </header>
 
     <main>
-
         <div class="container">
             <div class="main-container">
-
                 <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel"
                     data-bs-interval="3000">
 
@@ -57,9 +60,14 @@
                                     alt="juegos-mosaico">
                                 <!-- Texto (50%) -->
                                 <div class="content">
-                                    <h2 class="mb-3" style="text-decoration: underline;">Los titulos mas novedosos</h2>
-                                    <p>Encuentra la información acerca de tus titulos favoritos e incluso mas actuales
-                                        del mundo de los videojuegos.</p>
+                                    <p class="carousel-textarea">Encuentra la información acerca de tus titulos
+                                        favoritos e incluso mas actuales junto con toda las noticias diarias que salen
+                                        en el mundo de los video juegos.</p>
+                                    <div class="button-section">
+                                        <button class="game-button">
+                                            <a href="#noticias">Ver Noticias</a>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -68,12 +76,14 @@
                                 <img src="https://ik.imagekit.io/m3g4ID/Metaphor-ReFantazio-feature-2.jpg?updatedAt=1732296100268"
                                     alt="Metaphor-imagen">
                                 <div class="content">
-                                    <h2 class="mb-3" style="text-decoration: underline;">Metaphor: ReFantazio, Lo ultimo
-                                        de Atlus.</h2>
-                                    <p>Vuelve lo mejor de los videojuegos de rol con lugar en Reino Unido de Euchronia,
+                                    <p class="carousel-textarea">Vuelve lo mejor de los videojuegos de rol con lugar en
+                                        Reino Unido de Euchronia,
                                         un reino de fantasía medieval que refleja el mundo real contemporáneo, tras el
                                         asesinato de su antiguo Rey</p>
-                                    <button class="game-button" data-slug="metaphor-refantazio">Ver detalles</button>
+                                    <div class="button-section">
+                                        <button class="game-button" data-slug="metaphor-refantazio">Ver
+                                            detalles</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -82,13 +92,14 @@
                                 <img src="https://ik.imagekit.io/m3g4ID/STALKER-2-Heart-of-Chornobyl-Review-PC.jpg?updatedAt=1732296100432"
                                     alt="Stalker-2-imagen">
                                 <div class="content">
-                                    <h2 class="mb-3" style="text-decoration: underline;">S.T.A.L.K.E.R 2: Heart of
-                                        Chornobyl, vuelta a la zona.</h2>
-                                    <p>Vuelve a encarnar a un stalker solitario explorando un mundo único y
+                                    <p class="carousel-textarea">Vuelve a encarnar a un stalker solitario explorando un
+                                        mundo único y
                                         postapocalíptico en el que deberás decidir quién merece una bala en la sien o
                                         quién merece tu ayuda, la zona es un lugar peligroso y lleno de secretos por
                                         descubrir.</p>
-                                    <button class="game-button" data-slug="stalker-2">Ver detalles</button>
+                                    <div class="button-section">
+                                        <button class="game-button" data-slug="stalker-2">Ver detalles</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -106,7 +117,7 @@
 
             </div>
 
-            <div class="separate-container">
+            <div class="separate-container" id="noticias">
                 <h1>Nuestro sitio con las ultimas novedades en titulos</h1>
             </div>
 

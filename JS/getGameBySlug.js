@@ -12,27 +12,26 @@ document.addEventListener("DOMContentLoaded", function () {
         return response.json();
       })
       .then((data) => {
-        return data; // Devuelve los datos del juego
+        return data; //Datos Juegos//
       })
       .catch((error) => console.error("Error al obtener el juego:", error));
   }
 
-  // Función para obtener el parámetro `id` de la URL
+  //Parametro de la URL 'id'//
   function getGameIdFromUrl() {
     const params = new URLSearchParams(window.location.search);
-    return params.get("id"); // Obtiene el valor de `id` de la URL
+    return params.get("id");
   }
 
-  // Obtén el ID del juego desde la URL
   const gameId = getGameIdFromUrl();
 
-  // Asegúrate de que `gameId` no sea nulo o inválido
+  //Verifica el ID del Juego//
   if (gameId) {
-    // Llama a la API para obtener los datos del juego
+    //Llamado a la API//
     getGameById(gameId).then((data) => {
       console.log("Información del juego:", data);
 
-      // Renderiza los detalles en el contenedor
+      //Se renderiza en el contenedor//
       const gameDetailsContainer = document.getElementById("game-details");
       gameDetailsContainer.innerHTML = `
         <div class="container">

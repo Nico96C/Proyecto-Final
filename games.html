@@ -12,25 +12,12 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Bokor&family=Protest+Revolution&family=Rowdies:wght@300;400;700&display=swap"
         rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bokor&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Protest+Revolution&family=Rowdies:wght@300;400;700&display=swap"
+        rel="stylesheet">
     <title>Juegos</title>
-
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-
-        .game {
-            margin: 20px;
-            padding: 10px;
-            border: 1px solid #ddd;
-        }
-
-        .game img {
-            width: 100px;
-            height: 100px;
-            object-fit: cover;
-        }
-    </style>
 </head>
 
 <body>
@@ -63,7 +50,7 @@
         <h1>Lista de Juegos</h1>
         <div id="game-list" class="game-list">
             <!-- Placeholder inicial -->
-            <div class="card game-card col-md-4 mb-4 d-flex justify-content-center text-bg-dark">
+            <div class="card game-card col-md-3 mb-4 d-flex justify-content-center text-bg-dark">
                 <div class="card-img placeholder-glow" style="height: 200px; background-color: #555;">
                     <div class="placeholder w-100 h-100"></div>
                 </div>
@@ -73,7 +60,7 @@
                     </h5>
                 </div>
             </div>
-            <div class="card game-card col-md-4 mb-4 d-flex justify-content-center text-bg-dark">
+            <div class="card game-card col-md-3 mb-4 d-flex justify-content-center text-bg-dark">
                 <div class="card-img placeholder-glow" style="height: 200px; background-color: #555;">
                     <div class="placeholder w-100 h-100"></div>
                 </div>
@@ -83,7 +70,7 @@
                     </h5>
                 </div>
             </div>
-            <div class="card game-card col-md-4 mb-4 d-flex justify-content-center text-bg-dark">
+            <div class="card game-card col-md-3 mb-4 d-flex justify-content-center text-bg-dark">
                 <div class="card-img placeholder-glow" style="height: 200px; background-color: #555;">
                     <div class="placeholder w-100 h-100"></div>
                 </div>
@@ -93,7 +80,7 @@
                     </h5>
                 </div>
             </div>
-            <div class="card game-card col-md-4 mb-4 d-flex justify-content-center text-bg-dark">
+            <div class="card game-card col-md-3 mb-4 d-flex justify-content-center text-bg-dark">
                 <div class="card-img placeholder-glow" style="height: 200px; background-color: #555;">
                     <div class="placeholder w-100 h-100"></div>
                 </div>
@@ -103,7 +90,7 @@
                     </h5>
                 </div>
             </div>
-            <div class="card game-card col-md-4 mb-4 d-flex justify-content-center text-bg-dark">
+            <div class="card game-card col-md-3 mb-4 d-flex justify-content-center text-bg-dark">
                 <div class="card-img placeholder-glow" style="height: 200px; background-color: #555;">
                     <div class="placeholder w-100 h-100"></div>
                 </div>
@@ -113,7 +100,7 @@
                     </h5>
                 </div>
             </div>
-            <div class="card game-card col-md-4 mb-4 d-flex justify-content-center text-bg-dark">
+            <div class="card game-card col-md-3 mb-4 d-flex justify-content-center text-bg-dark">
                 <div class="card-img placeholder-glow" style="height: 200px; background-color: #555;">
                     <div class="placeholder w-100 h-100"></div>
                 </div>
@@ -123,7 +110,7 @@
                     </h5>
                 </div>
             </div>
-            <div class="card game-card col-md-4 mb-4 d-flex justify-content-center text-bg-dark">
+            <div class="card game-card col-md-3 mb-4 d-flex justify-content-center text-bg-dark">
                 <div class="card-img placeholder-glow" style="height: 200px; background-color: #555;">
                     <div class="placeholder w-100 h-100"></div>
                 </div>
@@ -133,7 +120,17 @@
                     </h5>
                 </div>
             </div>
-            <div class="card game-card col-md-4 mb-4 d-flex justify-content-center text-bg-dark">
+            <div class="card game-card col-md-3 mb-4 d-flex justify-content-center text-bg-dark">
+                <div class="card-img placeholder-glow" style="height: 200px; background-color: #555;">
+                    <div class="placeholder w-100 h-100"></div>
+                </div>
+                <div class="card-img-overlay d-flex align-items-center justify-content-center">
+                    <h5 class="card-title placeholder-glow">
+                        <span class="placeholder col-6"></span>
+                    </h5>
+                </div>
+            </div>
+            <div class="card game-card col-md-3 mb-4 d-flex justify-content-center text-bg-dark">
                 <div class="card-img placeholder-glow" style="height: 200px; background-color: #555;">
                     <div class="placeholder w-100 h-100"></div>
                 </div>
@@ -146,6 +143,7 @@
         </div>
 
         <button id="load-less"> Anterior </button>
+        <span id="page"></span>
         <button id="load-more"> Siguiente </button>
 
         <footer>

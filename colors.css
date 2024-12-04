@@ -1,3 +1,29 @@
+/*
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bokor&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Protest+Revolution&family=Rowdies:wght@300;400;700&display=swap" rel="stylesheet">
+
+.rowdies-light {
+  font-family: "Rowdies", serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.rowdies-regular {
+  font-family: "Rowdies", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.rowdies-bold {
+  font-family: "Rowdies", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+
+*/
 :root {
   --color-primary: #2b2e4a;
   --color-secondary: #e84545;
@@ -10,7 +36,7 @@
 
 /* GLOBAL */
 
-body {
+header {
   font-family: "Protest Revolution", sans-serif !important;
   font-weight: 400 !important;
   font-style: normal !important;
@@ -75,34 +101,18 @@ main .container {
 
 .main-container {
   position: relative;
-  border-radius: 4px;
-  background-color: var(--color-primary);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
-  text-align: center;
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  width: 100%;
+  height: 300px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  transition: all 0.4s ease-in-out;
   overflow: hidden;
 }
 
-.main-container::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 1px;
-  border: 3px solid transparent;
-  box-sizing: border-box;
-  z-index: 99;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-}
-
-.main-container:hover::before {
-  opacity: 0.9;
-  border-color: black;
-  animation: fadeInOut 2s infinite;
+.main-container:hover {
+  box-shadow: 0 0 30px 15px rgba(232, 69, 69, 0.6);
+  height: 400px;
+  animation: glowPulse 2s infinite;
 }
 
 .custom-card {
@@ -116,6 +126,12 @@ main .container {
   margin: 10px;
   user-select: none;
   cursor: pointer;
+  font-family: "Nunito", serif !important;
+  font-optical-sizing: auto !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+  font-size: 20px;
+  height: 450px;
 }
 
 .custom-card-link {
@@ -138,12 +154,24 @@ main .container {
 }
 
 .custom-card p {
-  margin: 5px;
+  margin: 10px;
 }
 
 .custom-card h5 {
   color: grey;
   font-size: 14px;
+  margin-top: 30px;
+  margin-bottom: 0 !important;
+}
+
+.carousel-textarea {
+  margin-bottom: 0 !important;
+  padding: 0.8rem;
+  font-family: "Nunito", serif !important;
+  font-optical-sizing: auto !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+  font-size: 18px;
 }
 
 .text-img-container {
@@ -152,24 +180,32 @@ main .container {
   justify-content: space-between;
   height: 400px;
   background-color: var(--color-secondary);
-  border-radius: 8px;
+  border-radius: 16px;
 }
 
 .text-img-container img {
-  display: flex;
-  width: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 100%;
   object-fit: cover;
+  filter: brightness(0.6);
 }
 
 .text-img-container .content {
+  position: relative;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  padding: 16px;
-  width: 50%;
-  background-color: var(--color-secondary);
+  margin-top: auto;
+  bottom: 0;
+  z-index: 1;
+  color: white;
+  padding: 20px;
+  font-family: "Nunito", serif !important;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .separate-container {
@@ -177,6 +213,10 @@ main .container {
   text-align: center;
   margin-bottom: 4.5rem;
   margin-top: 4.5rem;
+  font-family: "Protest Revolution", sans-serif !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+  font-size: 24px !important;
 }
 
 .separate-container-2 {
@@ -184,6 +224,31 @@ main .container {
   text-align: center;
   margin-bottom: 4.5rem;
   margin-top: 4.5rem;
+  font-family: "Protest Revolution", sans-serif !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+  font-size: 24px !important;
+}
+
+.button-section {
+  z-index: 2;
+}
+
+.button-section .game-button {
+  font-family: "Nunito", serif !important;
+  font-optical-sizing: auto !important;
+  font-weight: 800 !important;
+  font-style: normal !important;
+  font-size: 20px;
+  color: var(--color-secondary);
+  border: 1px solid var(--color-secondary);
+  padding: .45rem;
+  border-radius: 10px;
+}
+
+.game-button a {
+  text-decoration: none;
+  color: var(--color-secondary);
 }
 
 .carousel-inner {
@@ -230,6 +295,18 @@ main .container {
   margin-top: 2em;
 }
 
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 20px 10px rgba(232, 69, 69, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 40px 20px rgba(232, 69, 69, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 20px 10px rgba(232, 69, 69, 0.4);
+  }
+}
+
 @keyframes fadeSlideIn {
   from {
     opacity: 0;
@@ -238,16 +315,6 @@ main .container {
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@keyframes fadeInOut {
-  0%,
-  100% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 0.9;
   }
 }
 
@@ -290,6 +357,18 @@ main .container {
   background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
 }
 
+.game {
+  margin: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+.game img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
 .game-list {
   display: flex;
   flex-wrap: wrap;
@@ -329,6 +408,35 @@ main .container {
   object-fit: cover;
   height: 100%;
   filter: brightness(70%);
+}
+
+.card-title {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateY(100%);
+  opacity: 0;
+  font-size: 1.25rem;
+  background-color: rgba(0, 0, 0, .4);
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-bottom: 0 !important;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  font-family: "Nunito", serif !important;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-size: 24px;
+  font-style: normal;
+}
+
+.card-img-overlay:hover .card-title {
+  transform: translateY(0);
+  opacity: 1;
 }
 
 /* GAME DETAILS */
