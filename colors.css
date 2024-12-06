@@ -166,12 +166,12 @@ main .container {
 
 .carousel-textarea {
   margin-bottom: 0 !important;
-  padding: 0.8rem;
   font-family: "Nunito", serif !important;
   font-optical-sizing: auto !important;
-  font-weight: 400 !important;
+  font-weight: 800 !important;
   font-style: normal !important;
   font-size: 18px;
+  text-shadow: 0 0 2px black, 0 0 2px black, 0 0 2px black;
 }
 
 .text-img-container {
@@ -196,12 +196,13 @@ main .container {
 .text-img-container .content {
   position: relative;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: end;
   margin-top: auto;
   bottom: 0;
   z-index: 1;
   color: white;
-  padding: 20px;
+  padding: 5px 50px 5px 50px;
   font-family: "Nunito", serif !important;
   font-optical-sizing: auto;
   font-weight: 400;
@@ -240,15 +241,21 @@ main .container {
   font-weight: 800 !important;
   font-style: normal !important;
   font-size: 20px;
-  color: var(--color-secondary);
-  border: 1px solid var(--color-secondary);
-  padding: .45rem;
+  color: white;
+  padding: 0.45rem;
   border-radius: 10px;
 }
 
 .game-button a {
   text-decoration: none;
   color: var(--color-secondary);
+  text-shadow: 0 0 2px black, 0 0 2px black, 0 0 2px black;
+  transition: color 0.5s ease-in-out;
+}
+
+.game-button a:hover {
+  text-decoration: none;
+  color: white;
 }
 
 .carousel-inner {
@@ -357,6 +364,14 @@ main .container {
   background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
 }
 
+.main h1 {
+  font-weight: 400 !important;
+  color: var(--color-secondary);
+  font-family: "Protest Revolution", sans-serif !important;
+  font-style: normal;
+  padding: 2rem;
+}
+
 .game {
   margin: 20px;
   padding: 10px;
@@ -422,7 +437,7 @@ main .container {
   transform: translateY(100%);
   opacity: 0;
   font-size: 1.25rem;
-  background-color: rgba(0, 0, 0, .4);
+  background-color: rgba(0, 0, 0, 0.4);
   padding: 5px 10px;
   border-radius: 5px;
   margin-bottom: 0 !important;
@@ -464,4 +479,49 @@ main .container {
 .card-img-top {
   width: 600px !important;
   height: 400px;
+}
+
+.input-group {
+  position: relative;
+  display: flex;
+  width: 25% !important;
+  align-items: center;
+  margin: auto !important;
+  margin-bottom: 1rem !important;
+}
+
+@media (max-width: 768px) {
+  .separate-container h1 {
+    font-size: 2.5rem;
+  }
+
+  .separate-container-2 h2 {
+    font-size: 2.5rem;
+  }
+
+  .company-icon {
+    gap: 2em;
+    margin-top: 1em;
+  }
+
+  .company-icon img {
+    width: 75px;
+    height: 75px;
+  }
+}
+
+@media (max-width: 490px) {
+  .separate-container-2 h2 {
+    font-size: 2rem;
+  }
+
+  .company-icon {
+    gap: 1.5em;
+    margin-top: .5em;
+  }
+
+  .company-icon img {
+    width: 50px;
+    height: 50px;
+  }
 }

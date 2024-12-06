@@ -2,6 +2,11 @@ import CONFIG from "../config.js";
 
 var currentPage = 1;
 
+const searchInput = document.getElementById("search-input");
+const searchButton = document.getElementById("button-addon2");
+
+/* BUSQUEDA JUEGOS AL ENTRAR A PAGINA */
+
 async function obtainGames(page = 1, pageSize = 20) {
   const apiKey = CONFIG.API_KEY;
   const url = `https://api.rawg.io/api/games?key=${apiKey}&page=${page}&page_size=${pageSize}`;
@@ -43,6 +48,66 @@ async function displayGames(page = 1) {
       gameList.appendChild(div);
     });
   }, 2000);
+}
+
+/* BUSQUEDA JUEGOS POR INPUT */
+
+async function searchGames(query) {
+  const apiKey = CONFIG.API_KEY;
+  try {
+    const response = await fetch(`https://api.rawg.io/api/games?key=${apiKey}&search=${query}`);
+    if (!response.ok) {
+      throw new Error("Error al buscar los juegos.");
+    }
+    const data = await response.json();
+    // Filtrar elementos que sean null o carezcan de propiedades esenciales
+    const filteredResults = data.results.filter(game => game && game.name && game.background_image);
+    return filteredResults;
+  } catch (error) {
+    console.error(error);
+    return [];
+  }
+}
+
+searchButton.addEventListener("click", async () => {
+  const query = searchInput.value.trim();
+  if (query) {
+    const games = await searchGames(query);
+    renderGames(games); // Crea una nueva función para manejar esto
+  }
+});
+
+searchInput.addEventListener("input", async () => {
+  const query = searchInput.value.trim();
+  if (query.trim() === "") {
+    displayGames(1);
+  }
+
+  /*
+  // Si hay texto, realiza la búsqueda //
+    const games = await searchGames(query);
+    renderGames(games);
+  */
+});
+
+function renderGames(games) {
+  const gameList = document.getElementById("game-list");
+  gameList.innerHTML = ""; // Limpia los resultados anteriores
+  games.forEach((game) => {
+    const div = document.createElement("div");
+    div.classList.add("col-md-3", "mb-4", "d-flex", "justify-content-center");
+    div.innerHTML = `
+      <a href="/gamesDetails.html?id=${game.id}" class="text-decoration-none" data-id="${game.id}">
+        <div class="card game-card text-bg-dark">
+          <img src="${game.background_image}" alt="${game.name}" class="card-img">
+          <div class="card-img-overlay d-flex align-items-center justify-content-center">
+            <h3 class="card-title text-center">${game.name}</h3>
+          </div>
+        </div>
+      </a>
+    `;
+    gameList.appendChild(div);
+  });
 }
 
 displayGames(currentPage); //Muestra juegos de cantidad de paginas actuales//
