@@ -490,6 +490,60 @@ main .container {
   margin-bottom: 1rem !important;
 }
 
+.input-group .form-control {
+  border-color: var(--color-secondary);
+}
+
+.input-group .btn {
+  border-color: var(--color-secondary);
+  color: var(--color-secondary) !important;
+}
+
+.input-group .form-control:focus {
+  border-color: var(--color-secondary);
+  box-shadow: 0 0 5px rgba(232, 69, 69, 0.7);
+}
+
+.input-group .btn:hover {
+  color: #ffffff !important;
+  border-top-color: #ffffff;
+  border-bottom-color: #ffffff;
+  border-right-color: #ffffff;
+}
+
+.pagination-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+  gap: 25px;
+}
+
+.page-btn {
+  font-weight: 400 !important;
+  color: var(--color-secondary);
+  font-family: "Protest Revolution", sans-serif !important;
+  font-style: normal;
+  font-size: 1.5rem;
+  transition: color .3s ease-in-out;
+}
+
+.page-btn:hover {
+  color: white;
+}
+
+.pagination {
+  font-weight: 400 !important;
+  color: var(--color-primary);
+  font-family: "Protest Revolution", sans-serif !important;
+  font-style: normal;
+  font-size: 1.5rem;
+  padding: 0 10px 0 10px !important;
+  background-color: white;
+  border-radius: 5px;
+  user-select: none;
+}
+
 @media (max-width: 768px) {
   .separate-container h1 {
     font-size: 2.5rem;
@@ -517,7 +571,7 @@ main .container {
 
   .company-icon {
     gap: 1.5em;
-    margin-top: .5em;
+    margin-top: 0.5em;
   }
 
   .company-icon img {

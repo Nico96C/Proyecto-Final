@@ -49,9 +49,10 @@
     <div class="main">
         <h1>Lista de Juegos</h1>
         <div class="input-group">
-            <input type="text" class="form-control" placeholder="Busca tu juego . . ." aria-label="Buscador de juegos" aria-describedby="button-addon2" id="search-input">
+            <input type="text" class="form-control" placeholder="Busca tu juego . . ." aria-label="Buscador de juegos"
+                aria-describedby="button-addon2" id="search-input">
             <button class="btn btn-outline-secondary" type="button" id="button-addon2">Buscar</button>
-          </div>
+        </div>
         <div id="game-list" class="game-list">
             <!-- Placeholder inicial -->
             <div class="card game-card col-md-3 mb-4 d-flex justify-content-center text-bg-dark">
@@ -146,9 +147,11 @@
             </div>
         </div>
 
-        <button id="load-less"> Anterior </button>
-        <span id="page"></span>
-        <button id="load-more"> Siguiente </button>
+        <div class="pagination-section">
+            <button id="load-less" class="page-btn"> Anterior </button>
+            <span id="page" class="pagination"></span>
+            <button id="load-more" class="page-btn"> Siguiente </button>
+        </div>
 
         <footer>
 
