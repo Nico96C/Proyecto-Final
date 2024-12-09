@@ -1,22 +1,6 @@
 import CONFIG from "../config.js";
 
 document.addEventListener("DOMContentLoaded", function () {
-  function getGameById(id) {
-    const apiKey = CONFIG.API_KEY;
-
-    return fetch(`https://api.rawg.io/api/games/${id}?key=${apiKey}`)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Error al obtener los datos de la API");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        return data; //Datos Juegos//
-      })
-      .catch((error) => console.error("Error al obtener el juego:", error));
-  }
-
   //Parametro de la URL 'id'//
   function getGameIdFromUrl() {
     const params = new URLSearchParams(window.location.search);
@@ -54,5 +38,21 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   } else {
     console.log("No se proporcionó un ID de juego en la URL.");
+  }
+
+  function getGameById(id) {
+    const apiKey = CONFIG.API_KEY;
+
+    return fetch(`https://api.rawg.io/api/games/${id}?key=${apiKey}`)
+      .then((response) => {
+        if (!response.ok) {
+          console.log("Error al obtener los datos de la API");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        return data; //Datos Juegos//
+      })
+      .catch(() => console.log ("Error al obtener el juego"));
   }
 });

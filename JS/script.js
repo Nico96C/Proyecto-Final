@@ -28,26 +28,57 @@ async function displayGames(page = 1) {
   setTimeout(() => {
     // Limpia los placeholders //
     gameList.innerHTML = "";
-  
+
     // Inserta las cards originales //
     games.forEach((game) => {
-      const div = document.createElement("div");
-      div.classList.add("col-md-3", "mb-4", "d-flex", "justify-content-center");
+      const newDiv = document.createElement("div");
+      newDiv.classList.add("col-md-3", "d-flex", "justify-content-center");
 
       // Estructura de cada card como anchor //
-      div.innerHTML = `
-        <a href="/gamesDetails.html?id=${game.id}" class="text-decoration-none" data-id="${game.id}">
-          <div class="card game-card text-bg-dark">
+      newDiv.innerHTML = `
+        <a href="/gamesDetails.html?id=${game.id}" class="text-decoration-none" data-id="${game.id}" style="height: 250px !important;">
+          <div class="card game-card text-bg-dark" style="height: 250px !important;">
             <img src="${game.background_image}" alt="${game.name}" class="card-img">
             <div class="card-img-overlay d-flex align-items-center justify-content-center">
               <h3 class="card-title text-center">${game.name}</h3>
+              <button id="add-item" class="add-item-btn">Añadir al Carrito</button>
             </div>
           </div>
         </a>
       `;
-      gameList.appendChild(div);
+
+      const botonAgregar = newDiv.querySelector("#add-item");
+
+      botonAgregar.addEventListener("click", () => {
+        event.preventDefault();
+        event.stopPropagation();
+        agregarAlCarrito(game);
+      });
+
+      gameList.appendChild(newDiv);
     });
   }, 2000);
+
+  function agregarAlCarrito(game) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    const existe = cart.find((item) => item.id === game.id);
+
+    if (existe) {
+      alert(`${game.name} ya está en el carrito.`);
+    } else {
+      // Agregar el juego al carrito //
+      cart.push({
+        id: game.id,
+        name: game.name,
+        image: game.background_image,
+      });
+
+      // Guardar en localStorage //
+      localStorage.setItem("cart", JSON.stringify(cart));
+      alert(`${game.name} ha sido agregado al carrito.`);
+    }
+  }
 }
 
 /* BUSQUEDA JUEGOS POR INPUT */
@@ -55,16 +86,20 @@ async function displayGames(page = 1) {
 async function searchGames(query) {
   const apiKey = CONFIG.API_KEY;
   try {
-    const response = await fetch(`https://api.rawg.io/api/games?key=${apiKey}&search=${query}`);
+    const response = await fetch(
+      `https://api.rawg.io/api/games?key=${apiKey}&search=${query}`
+    );
     if (!response.ok) {
-      throw new Error("Error al buscar los juegos.");
+      console.log("Error al buscar los juegos.");
     }
     const data = await response.json();
-    // Filtrar elementos que sean null o carezcan de propiedades esenciales
-    const filteredResults = data.results.filter(game => game && game.name && game.background_image);
+    // Filtra elementos null //
+    const filteredResults = data.results.filter(
+      (game) => game && game.name && game.background_image
+    );
     return filteredResults;
   } catch (error) {
-    console.error(error);
+    console.log("Error en busqueda");
     return [];
   }
 }
@@ -73,7 +108,7 @@ searchButton.addEventListener("click", async () => {
   const query = searchInput.value.trim();
   if (query) {
     const games = await searchGames(query);
-    renderGames(games); // Crea una nueva función para manejar esto
+    renderGames(games); // Crea una nueva función para manejar esto //
   }
 });
 
@@ -92,7 +127,7 @@ searchInput.addEventListener("input", async () => {
 
 function renderGames(games) {
   const gameList = document.getElementById("game-list");
-  gameList.innerHTML = ""; // Limpia los resultados anteriores
+  gameList.innerHTML = ""; // Limpia los resultados anteriores //
   games.forEach((game) => {
     const div = document.createElement("div");
     div.classList.add("col-md-3", "mb-4", "d-flex", "justify-content-center");
@@ -127,7 +162,7 @@ loadLessButton.addEventListener("click", () => {
   if (currentPage > 1) {
     currentPage -= 1;
     displayGames(currentPage);
-    updatePageDisplay()
+    updatePageDisplay();
     updateButtonState(); // Actualiza el estado del botón //
   } else {
     loadLessButton.disabled = true;
