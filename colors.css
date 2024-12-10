@@ -486,7 +486,7 @@ main .container {
 
 .container .game-details-side {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   text-align: center;
   color: var(--color-secondary);
@@ -494,8 +494,12 @@ main .container {
 
 .card-body {
   display: flex;
+  flex: none !important;
   flex-direction: column;
   align-items: center;
+  gap: 15px;
+  font-family: "Nunito", serif !important;
+  font-style: normal;
 }
 
 .metacritic-media {
@@ -506,7 +510,60 @@ main .container {
 
 .card-img-top {
   width: 600px !important;
-  height: 400px;
+  height: 500px !important;
+  object-fit: cover;
+  border-radius: 0.7rem;
+  transition: transform 0.3s ease-in-out;
+}
+
+.card-img-top:hover {
+  transform: scale(1.02);
+}
+
+.toggle-btn {
+  color: var(--color-secondary) !important;
+  text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black;
+}
+
+.description {
+  display: flex;
+  max-width: 800px;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  margin-top: 3rem !important;
+}
+
+.description h2 {
+  color: var(--color-secondary);
+}
+
+.description-text {
+  text-align: center;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  line-height: 1.5rem;
+  max-height: 600px !important;
+  transition: all 0.3s ease-in-out;
+  color: var(--color-secondary);
+  font-weight: 600;
+}
+
+.toggle-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.toggle-btn:hover {
+  background-color: #0056b3;
 }
 
 .input-group {
@@ -553,7 +610,7 @@ main .container {
   font-family: "Protest Revolution", sans-serif !important;
   font-style: normal;
   font-size: 1.5rem;
-  transition: color .3s ease-in-out;
+  transition: color 0.3s ease-in-out;
 }
 
 .page-btn:hover {
