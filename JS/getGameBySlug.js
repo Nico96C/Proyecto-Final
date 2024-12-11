@@ -14,6 +14,11 @@ document.addEventListener("DOMContentLoaded", function () {
     //Llamado a la API//
     getGameById(gameId).then((data) => {
       console.log("Información del juego:", data);
+      console.log(data.ratings);
+
+      const descriptionRaw = data.description_raw || "Descripción no disponible";
+
+      const descriptionInSpanish = descriptionRaw.split("Español")[1]?.trim() || "Descripción no disponible";
 
       //Se renderiza en el contenedor//
       const gameDetailsContainer = document.getElementById("game-details");
@@ -23,21 +28,40 @@ document.addEventListener("DOMContentLoaded", function () {
           <img src="${data.background_image}" alt="${
         data.name
       }" class="card-img-top">
+        <button class="add-item-btn"> Agregar al carrito </button>
           <div class="card-body">
             <h1>${data.name}</h1>
             <h2 class="metacritic-media"> ${data.metacritic} </h2>
             <p><strong>Fecha de lanzamiento:</strong> ${
               data.released || "No disponible"
             }</p>
-            <p><strong>Rating:</strong> ${data.rating || "No disponible"}</p>
+            <p><strong>Rating:</strong> ${
+              data.rating + " / " + data.rating_top + " ⭐ " || "No disponible"
+            }</p>
           </div>
         </div>
           <div class="description">
             <h2> Descripción </h2>
             <p class="description-text" id="description-text">${
-              data.description_raw || "No disponible"
+              descriptionInSpanish || "No disponible"
             }</p>
             <button class="toggle-btn" id="toggle-btn">Ver Más ▼</button>
+          </div>
+          <div>
+            <p>
+              <span>${data.ratings[0].title}: ${data.ratings[0].percent}% (${
+        data.ratings[0].count
+      } votos)</span><br>
+              <span>${data.ratings[1].title}: ${data.ratings[1].percent}% (${
+        data.ratings[1].count
+      } votos)</span><br>
+              <span>${data.ratings[2].title}: ${data.ratings[2].percent}% (${
+        data.ratings[2].count
+      } votos)</span><br>
+              <span>${data.ratings[3].title}: ${data.ratings[3].percent}% (${
+        data.ratings[3].count
+      } votos)</span><br>
+            </p>
           </div>
         </div>
       `;
@@ -61,8 +85,8 @@ document.addEventListener("DOMContentLoaded", function () {
         // Verifica si hay resultados
         if (data.results && data.results.length > 0) {
           const videoData = data.results[0];
-          const videoUrl = videoData.data['480'];
-          
+          const videoUrl = videoData.data["480"];
+
           gameVideoContainer.innerHTML = `
           <div>
             <video src="${videoUrl}" controls></video>
@@ -75,7 +99,6 @@ document.addEventListener("DOMContentLoaded", function () {
       .catch((error) => {
         console.error("Error al obtener los videos del juego:", error);
       });
-
   } else {
     console.log("No se proporcionó un ID de juego en la URL.");
   }

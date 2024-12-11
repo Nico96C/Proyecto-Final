@@ -47,7 +47,7 @@ async function displayGames(page = 1) {
         </a>
       `;
 
-      const botonAgregar = newDiv.querySelector("#add-item");
+      const botonAgregar = newDiv.querySelector(".add-item-btn");
 
       botonAgregar.addEventListener("click", () => {
         event.preventDefault();
@@ -57,7 +57,7 @@ async function displayGames(page = 1) {
 
       gameList.appendChild(newDiv);
     });
-  }, 2000);
+  }, 2250);
 
   function agregarAlCarrito(game) {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -108,7 +108,7 @@ searchButton.addEventListener("click", async () => {
   const query = searchInput.value.trim();
   if (query) {
     const games = await searchGames(query);
-    renderGames(games); // Crea una nueva función para manejar esto //
+    renderGames(games);
   }
 });
 

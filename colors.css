@@ -71,6 +71,10 @@ button {
   margin: 0 !important;
 }
 
+.nav-link:focus, .nav-link:hover {
+  color: white !important;
+}
+
 main .container {
   margin-top: 3rem !important;
   margin-bottom: 3rem !important;
@@ -627,6 +631,19 @@ main .container {
   background-color: white;
   border-radius: 5px;
   user-select: none;
+}
+
+@media (max-width: 1400px) {
+  .navbar-nav {
+    gap: 2rem !important;
+  }
+}
+
+@media (max-width: 992px) {
+  .navbar-nav {
+    align-items: center;
+    gap: 1rem !important;
+  }
 }
 
 @media (max-width: 768px) {
