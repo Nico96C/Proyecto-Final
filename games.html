@@ -41,7 +41,7 @@
                         <a class="nav-link" href="/news.html"> NOTICIAS </a>
                         <a class="nav-link" href="#">ACERCA DE</a>
                         <a class="nav-link" href="#">F.A.Q</a>
-                        <button class="nav-link">CARRITO</button>
+                        <button class="nav-link" id="cart-show">CARRITO</button>
                     </div>
                 </div>
             </div>
@@ -160,6 +160,15 @@
         </footer>
 
     </div>
+
+    <div id="overlay" class="overlay"></div>
+    <div id="sidebar" class="sidebar">
+        <h2>Carrito de Productos</h2>
+        <div id="cart-items" class="cart-items"></div>
+        <p id="items-quantity"></p>
+        <button id="close-sidebar" class="sidebar-close">Cerrar</button>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
         crossorigin="anonymous"></script>
@@ -168,6 +177,7 @@
         crossorigin="anonymous"></script>
     <script type="module" src="JS/getGameBySlug.js"></script>
     <script type="module" src="JS/script.js"></script>
+    <script type="module" src="JS/showCart.js"></script>
 
 </body>
 

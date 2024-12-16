@@ -16,19 +16,23 @@ document.addEventListener("DOMContentLoaded", function () {
       console.log("Información del juego:", data);
       console.log(data.ratings);
 
-      const descriptionRaw = data.description_raw || "Descripción no disponible";
+      const descriptionRaw =
+        data.description_raw || "Descripción no disponible";
 
-      const descriptionInSpanish = descriptionRaw.split("Español")[1]?.trim() || "Descripción no disponible";
+      const descriptionInSpanish =
+        descriptionRaw.split("Español")[1]?.trim() || descriptionRaw;
 
       //Se renderiza en el contenedor//
       const gameDetailsContainer = document.getElementById("game-details");
       gameDetailsContainer.innerHTML = `
         <div class="container">
         <div class="game-details-side">
-          <img src="${data.background_image}" alt="${
+          <div class="game-img-container">
+              <img src="${data.background_image}" alt="${
         data.name
       }" class="card-img-top">
-        <button class="add-item-btn"> Agregar al carrito </button>
+            <button class="add-item-btn-2" id="add-cart-game"> Agregar al Carrito </button>
+          </div>
           <div class="card-body">
             <h1>${data.name}</h1>
             <h2 class="metacritic-media"> ${data.metacritic} </h2>
@@ -42,9 +46,8 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
           <div class="description">
             <h2> Descripción </h2>
-            <p class="description-text" id="description-text">${
-              descriptionInSpanish || "No disponible"
-            }</p>
+            <p class="description-text" id="description-text">
+            ${descriptionInSpanish || "No disponible"}</p>
             <button class="toggle-btn" id="toggle-btn">Ver Más ▼</button>
           </div>
           <div>
@@ -99,6 +102,13 @@ document.addEventListener("DOMContentLoaded", function () {
       .catch((error) => {
         console.error("Error al obtener los videos del juego:", error);
       });
+
+    document.addEventListener("click", (event) => {
+      if (event.target && event.target.id === "add-cart-game") {
+        console.log("Botón clickeado desde delegación de eventos");
+        agregarAlCarrito(data);
+      }
+    });
   } else {
     console.log("No se proporcionó un ID de juego en la URL.");
   }
@@ -135,3 +145,24 @@ document.addEventListener("DOMContentLoaded", function () {
       .catch(() => console.log("Error al obtener los trailers"));
   }
 });
+
+function agregarAlCarrito(game) {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  const existe = cart.find((item) => item.id === game.id);
+
+  if (existe) {
+    alert(`${game.name} ya está en el carrito.`);
+  } else {
+    // Agregar el juego al carrito //
+    cart.push({
+      id: game.id,
+      name: game.name,
+      image: game.background_image,
+    });
+
+    // Guardar en localStorage //
+    localStorage.setItem("cart", JSON.stringify(cart));
+    alert(`${game.name} ha sido agregado al carrito.`);
+  }
+}

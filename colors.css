@@ -65,13 +65,48 @@ button {
   background-color: transparent !important;
 }
 
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -120%;
+  width: 450px;
+  height: 100%;
+  background-color: #2b2e4a;
+  background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--color-secondary);
+  transition: right 0.5s ease;
+  padding: 15px;
+  overflow-y: auto;
+  z-index: 1000;
+}
+.sidebar.show {
+  right: 0;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: none;
+}
+
+.overlay.active {
+  display: block;
+}
+
 /* INDEX */
 
 .navbar {
   margin: 0 !important;
 }
 
-.nav-link:focus, .nav-link:hover {
+.nav-link:focus,
+.nav-link:hover {
   color: white !important;
 }
 
@@ -461,7 +496,6 @@ main .container {
   opacity: 0;
   padding: 10px 20px;
   color: #fff;
-  border: none;
   border-radius: 5px;
   font-family: "Nunito", serif !important;
   font-weight: 300;
@@ -470,6 +504,39 @@ main .container {
   border: 1px solid var(--color-secondary);
   margin-top: 1.5rem;
   transition: transform 0.3s ease, opacity 0.3s ease, color 0.3s ease;
+}
+
+.pagination-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+  gap: 25px;
+}
+
+.page-btn {
+  font-weight: 400 !important;
+  color: var(--color-secondary);
+  font-family: "Protest Revolution", sans-serif !important;
+  font-style: normal;
+  font-size: 1.5rem;
+  transition: color 0.3s ease-in-out;
+}
+
+.page-btn:hover {
+  color: white;
+}
+
+.pagination {
+  font-weight: 400 !important;
+  color: var(--color-primary);
+  font-family: "Protest Revolution", sans-serif !important;
+  font-style: normal;
+  font-size: 1.5rem;
+  padding: 0 10px 0 10px !important;
+  background-color: white;
+  border-radius: 5px;
+  user-select: none;
 }
 
 .card-img-overlay:hover .card-title,
@@ -490,10 +557,10 @@ main .container {
 
 .container .game-details-side {
   display: flex;
-  justify-content: space-around;
   align-items: center;
   text-align: center;
   color: var(--color-secondary);
+  gap: 3rem;
 }
 
 .card-body {
@@ -600,37 +667,107 @@ main .container {
   border-right-color: #ffffff;
 }
 
-.pagination-section {
+.game-img-container {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  margin-bottom: 2rem;
-  gap: 25px;
 }
 
-.page-btn {
-  font-weight: 400 !important;
-  color: var(--color-secondary);
-  font-family: "Protest Revolution", sans-serif !important;
+.add-item-btn-2 {
+  position: relative;
+  padding: 10px 20px;
+  color: #fff;
+  border-radius: 5px;
+  font-family: "Nunito", serif !important;
+  font-weight: 300;
+  font-size: 16px;
   font-style: normal;
-  font-size: 1.5rem;
-  transition: color 0.3s ease-in-out;
+  border: 1px solid var(--color-secondary);
+  margin-top: 1.5rem;
+  transition: transform 0.3s ease, opacity 0.3s ease, color 0.3s ease;
 }
 
-.page-btn:hover {
+.game-img-container:hover .add-item-btn-2 {
+  animation: scaleUp 1.5s ease-out infinite;
+}
+
+.cart-items {
+  height: 700px;
+}
+
+.sidebar-close {
+  padding: 10px 20px;
+  color: var(--color-secondary);
+  border-radius: 5px;
+  font-family: "Nunito", serif !important;
+  font-weight: 700;
+  font-size: 16px;
+  font-style: normal;
+  border: 1px solid var(--color-secondary);
+}
+
+.cart-container-view {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  cursor: pointer;
+}
+
+.cart-container-view span {
+  position: absolute;
+  margin-top: 10px;
+  color: var(--color-secondary);
+  font-family: "Nunito", serif !important;
+  font-weight: 800;
+  font-size: 18px;
+  font-style: normal;
+  text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black;
+  transition: all 0.6s ease-in-out;
+  user-select: none;
+}
+
+.cart-img {
+  width: 100%;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.5s ease;
+}
+
+.cart-container-view:hover .cart-img {
+  height: 170px;
+}
+
+.cart-container-view:hover span {
+  margin-top: 75px;
   color: white;
 }
 
-.pagination {
-  font-weight: 400 !important;
-  color: var(--color-primary);
-  font-family: "Protest Revolution", sans-serif !important;
-  font-style: normal;
-  font-size: 1.5rem;
-  padding: 0 10px 0 10px !important;
-  background-color: white;
-  border-radius: 5px;
-  user-select: none;
+.options-cart {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.options-cart p {
+  margin-bottom: 0 !important;
+  color: white;
+}
+
+@keyframes scaleUp {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 @media (max-width: 1400px) {
@@ -639,10 +776,24 @@ main .container {
   }
 }
 
+@media (max-width: 1200px) {
+  .carousel-textarea {
+    font-size: 14px;
+  }
+}
+
 @media (max-width: 992px) {
   .navbar-nav {
     align-items: center;
     gap: 1rem !important;
+  }
+
+  .carousel-textarea {
+    font-size: 12px;
+  }
+
+  .input-group {
+    width: 50% !important;
   }
 }
 
@@ -664,6 +815,35 @@ main .container {
     width: 75px;
     height: 75px;
   }
+
+  .text-img-container {
+    background-color: transparent;
+    height: 290px;
+  }
+
+  .text-img-container img {
+    object-fit: cover;
+  }
+
+  .main-container:hover {
+    height: 290px;
+  }
+
+  .main-container {
+    height: 290px;
+  }
+
+  .carousel-indicators {
+    display: none !important;
+  }
+
+  .carousel-textarea {
+    font-size: 10px;
+  }
+
+  .input-group {
+    width: 60% !important;
+  }
 }
 
 @media (max-width: 490px) {
@@ -679,5 +859,18 @@ main .container {
   .company-icon img {
     width: 50px;
     height: 50px;
+  }
+
+  .text-img-container img {
+    object-fit: contain;
+  }
+
+  .main-container {
+    box-shadow: none;
+  }
+
+  .main-container:hover {
+    box-shadow: none;
+    animation: none;
   }
 }
