@@ -80,8 +80,19 @@ button {
   overflow-y: auto;
   z-index: 1000;
 }
+
 .sidebar.show {
   right: 0;
+}
+
+.sidebar h2 {
+  margin-bottom: 1rem;
+  text-align: center;
+  font-family: "Nunito", serif !important;
+  font-weight: 600;
+  font-style: normal;
+  color: var(--color-secondary);
+  text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black;
 }
 
 .overlay {
@@ -97,6 +108,40 @@ button {
 
 .overlay.active {
   display: block;
+}
+
+.bottom-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.final-price-container {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.price {
+  margin-bottom: 0 !important;
+  color: var(--color-secondary);
+  font-family: "Nunito", serif !important;
+  font-weight: 600;
+}
+
+.pay-btn {
+  color: var(--color-secondary);
+  font-family: "Nunito", serif !important;
+  font-weight: 700;
+  font-size: 16px;
+  font-style: normal;
+  transition: color 0.5s ease;
+}
+
+.pay-btn:hover {
+  color: white;
 }
 
 /* INDEX */
@@ -171,6 +216,7 @@ main .container {
   font-style: normal !important;
   font-size: 20px;
   height: 450px;
+  -webkit-user-select: none;
 }
 
 .custom-card-link {
@@ -299,6 +345,7 @@ main .container {
 
 .carousel-inner {
   user-select: none !important;
+  -webkit-user-select: none !important;
 }
 
 .separate-container-2 h2 {
@@ -311,6 +358,7 @@ main .container {
   font-size: 3rem;
   margin-bottom: 2rem;
   user-select: none;
+  -webkit-user-select: none;
 }
 
 .separate-container h1 {
@@ -321,6 +369,7 @@ main .container {
     /* Sombra superior derecha */ -1px 1px 0 var(--color-primary),
     /* Sombra inferior izquierda */ 1px 1px 0 var(--color-primary); /* Sombra inferior derecha */
   user-select: none;
+  -webkit-user-select: none;
   font-size: 3rem;
 }
 
@@ -465,11 +514,7 @@ main .container {
 }
 
 .card-img-overlay {
-  position: relative;
-  display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   overflow: hidden;
   transition: background 0.4s ease-in-out;
 }
@@ -537,6 +582,7 @@ main .container {
   background-color: white;
   border-radius: 5px;
   user-select: none;
+  -webkit-user-select: none;
 }
 
 .card-img-overlay:hover .card-title,
@@ -563,6 +609,21 @@ main .container {
   gap: 3rem;
 }
 
+.game-name {
+  color: var(--color-secondary);
+  display: block;
+}
+
+.game-name-2 {
+  display: none;
+}
+
+.developers-names {
+  display: flex;
+  gap: 10px;
+  color: white;
+}
+
 .card-body {
   display: flex;
   flex: none !important;
@@ -573,27 +634,41 @@ main .container {
   font-style: normal;
 }
 
+.card-body p {
+  color: white !important;
+}
+
 .metacritic-media {
   padding: 1em;
   border-radius: 0.5em;
-  border: 1px solid black;
+  border: 1px solid white;
+  font-weight: 800;
+  background-color: rgba(0, 0, 0, 0.356);
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.green {
+  color: green;
+}
+.yellow {
+  color: orange;
+}
+.red {
+  color: red;
 }
 
 .card-img-top {
-  width: 600px !important;
-  height: 500px !important;
+  width: 500px !important;
+  height: 400px !important;
   object-fit: cover;
-  border-radius: 0.7rem;
+  border-radius: 25%;
   transition: transform 0.3s ease-in-out;
+  border-top-right-radius: 25% !important;
 }
 
 .card-img-top:hover {
   transform: scale(1.02);
-}
-
-.toggle-btn {
-  color: var(--color-secondary) !important;
-  text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black;
 }
 
 .description {
@@ -602,11 +677,16 @@ main .container {
   flex-direction: column;
   align-items: center;
   margin: auto;
-  margin-top: 3rem !important;
+  font-size: 18px;
+  margin-top: 4rem !important;
+  margin-bottom: 4rem !important;
 }
 
 .description h2 {
   color: var(--color-secondary);
+  margin-bottom: 20px;
+  font-family: "Nunito", serif !important;
+  font-style: normal;
 }
 
 .description-text {
@@ -619,22 +699,23 @@ main .container {
   line-height: 1.5rem;
   max-height: 600px !important;
   transition: all 0.3s ease-in-out;
-  color: var(--color-secondary);
+  color: white;
   font-weight: 600;
 }
 
 .toggle-btn {
-  background-color: #007bff;
-  color: white;
+  color: white !important;
   border: none;
   padding: 0.5rem 1rem;
   margin-top: 1rem;
   cursor: pointer;
   border-radius: 5px;
+  text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black;
+  transition: color 0.5s ease;
 }
 
 .toggle-btn:hover {
-  background-color: #0056b3;
+  color: var(--color-secondary) !important;
 }
 
 .input-group {
@@ -692,7 +773,11 @@ main .container {
 }
 
 .cart-items {
-  height: 700px;
+  height: 83%;
+}
+
+.items-quantity {
+  color: white;
 }
 
 .sidebar-close {
@@ -704,6 +789,11 @@ main .container {
   font-size: 16px;
   font-style: normal;
   border: 1px solid var(--color-secondary);
+  transition: color 0.5s ease;
+}
+
+.sidebar-close:hover {
+  color: white;
 }
 
 .cart-container-view {
@@ -726,6 +816,7 @@ main .container {
   text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black;
   transition: all 0.6s ease-in-out;
   user-select: none;
+  -webkit-user-select: none;
 }
 
 .cart-img {
@@ -756,6 +847,70 @@ main .container {
 .options-cart p {
   margin-bottom: 0 !important;
   color: white;
+}
+
+.section-reviews {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 10px;
+}
+
+.rating-bar {
+  display: block;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  font-family: "Nunito", serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+  font-size: 16px;
+  color: white;
+  text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black;
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: pointer;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 16px;
+  background-color: white !important;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.progress {
+  height: 100%;
+  background-color: var(--color-tertiary) !important;
+  border-radius: 0 !important;
+  transition: width 0.5s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.progress:hover,
+.rating-bar:hover .progress {
+  background-color: var(--color-secondary) !important;
+}
+
+.reviews-user {
+  text-align: center;
+  color: var(--color-secondary);
+  margin-bottom: 30px;
+  font-family: "Nunito", serif !important;
+  font-style: normal;
+}
+
+.game-video {
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+}
+
+.video-null {
+  font-family: "Nunito", serif !important;
+  font-style: normal;
+  font-size: 20px;
+  color: var(--color-secondary);
 }
 
 @keyframes scaleUp {
@@ -794,6 +949,33 @@ main .container {
 
   .input-group {
     width: 50% !important;
+  }
+
+  .game-details-side {
+    flex-direction: column;
+  }
+
+  .game-img-container img {
+    width: 450px !important;
+    height: 350px !important;
+  }
+
+  .game-video {
+    max-width: 700px;
+  }
+
+  .game-name {
+    display: none;
+  }
+
+  .game-name-2 {
+    text-align: center;
+    display: block;
+    font-family: "Nunito", serif !important;
+    font-style: normal;
+    font-weight: 500;
+    color: var(--color-secondary);
+    margin-bottom: 2rem;
   }
 }
 
@@ -844,6 +1026,43 @@ main .container {
   .input-group {
     width: 60% !important;
   }
+
+  .game-card {
+    min-width: 200px !important;
+  }
+
+  .card-title {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .add-item-btn {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .card-img-overlay:hover .card-title,
+  .card-img-overlay:hover .add-item-btn {
+    transform: none;
+  }
+
+  .card-img-overlay {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+
+  .game-video {
+    max-width: 550px;
+  }
+}
+
+@media (max-width: 668px) {
+  .game-video {
+    max-width: 400px;
+  }
+
+  .section-reviews {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 490px) {
@@ -872,5 +1091,14 @@ main .container {
   .main-container:hover {
     box-shadow: none;
     animation: none;
+  }
+
+  .game-img-container img {
+    width: 325px !important;
+    height: 250px !important;
+  }
+
+  .sidebar {
+    width: 100%;
   }
 }

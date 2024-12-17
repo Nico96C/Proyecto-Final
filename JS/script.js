@@ -132,14 +132,15 @@ function renderGames(games) {
     const div = document.createElement("div");
     div.classList.add("col-md-3", "mb-4", "d-flex", "justify-content-center");
     div.innerHTML = `
-      <a href="/gamesDetails.html?id=${game.id}" class="text-decoration-none" data-id="${game.id}">
-        <div class="card game-card text-bg-dark">
-          <img src="${game.background_image}" alt="${game.name}" class="card-img">
-          <div class="card-img-overlay d-flex align-items-center justify-content-center">
-            <h3 class="card-title text-center">${game.name}</h3>
+      <a href="/gamesDetails.html?id=${game.id}" class="text-decoration-none" data-id="${game.id}" style="height: 250px !important;">
+          <div class="card game-card text-bg-dark" style="height: 250px !important;">
+            <img src="${game.background_image}" alt="${game.name}" class="card-img">
+            <div class="card-img-overlay d-flex align-items-center justify-content-center">
+              <h3 class="card-title text-center">${game.name}</h3>
+              <button id="add-item" class="add-item-btn">Añadir al Carrito</button>
+            </div>
           </div>
-        </div>
-      </a>
+        </a>
     `;
     gameList.appendChild(div);
   });

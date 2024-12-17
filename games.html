@@ -24,7 +24,7 @@
 <body>
 
     <header>
-        <nav class="navbar navbar-expand-lg" style="background-color: var(--color-secondary);">
+        <nav class="navbar navbar-expand-lg" style="background-color: var(--color-secondary); padding: 0px; padding-top: 10px;">
             <div class="container">
                 <a class="navbar-brand" href="/">
                     <img src="img/gameIcon.png" alt="icon" width="40" height="40">
@@ -35,12 +35,12 @@
                     aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup" style="justify-content: center;">
                     <div class="navbar-nav" style="gap: 5rem;">
                         <a class="nav-link" href="/">HOME</a>
                         <a class="nav-link" href="/news.html"> NOTICIAS </a>
                         <a class="nav-link" href="#">ACERCA DE</a>
-                        <a class="nav-link" href="#">F.A.Q</a>
+                        <a class="nav-link" href="/FAQ.html">F.A.Q</a>
                         <button class="nav-link" id="cart-show">CARRITO</button>
                     </div>
                 </div>
@@ -165,8 +165,14 @@
     <div id="sidebar" class="sidebar">
         <h2>Carrito de Productos</h2>
         <div id="cart-items" class="cart-items"></div>
-        <p id="items-quantity"></p>
-        <button id="close-sidebar" class="sidebar-close">Cerrar</button>
+        <p id="items-quantity" class="items-quantity"></p>
+        <div class="bottom-container">
+            <button id="close-sidebar" class="sidebar-close">Cerrar</button>
+            <div class="final-price-container">
+                <p id="price-total" class="price"></p>
+                <button id="pay-items" class="pay-btn"> PAGAR </button>
+            </div>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"

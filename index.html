@@ -23,8 +23,7 @@
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg"
-            style="background-color: var(--color-secondary); padding: 0px; padding-top: 10px;">
+        <nav class="navbar navbar-expand-lg" style="background-color: var(--color-secondary); padding: 0px; padding-top: 10px;">
             <div class="container">
                 <a class="navbar-brand" href="/">
                     <img src="img/gameIcon.png" alt="icon" width="50" height="50">
@@ -40,7 +39,7 @@
                         <a class="nav-link" aria-current="page" href="/games.html"> VIDEOJUEGOS </a>
                         <a class="nav-link" href="/news.html"> NOTICIAS </a>
                         <a class="nav-link" href="#">ACERCA DE</a>
-                        <a class="nav-link" href="#">F.A.Q</a>
+                        <a class="nav-link" href="/FAQ.html">F.A.Q</a>
                         <button class="nav-link" id="cart-show">CARRITO</button>
                     </div>
                 </div>
@@ -57,10 +56,8 @@
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <div class="text-img-container">
-                                <!-- Imagen (50%) -->
                                 <img src="https://ik.imagekit.io/m3g4ID/1.jpeg?updatedAt=1732296100103"
                                     alt="juegos-mosaico">
-                                <!-- Texto (50%) -->
                                 <div class="content">
                                     <p class="carousel-textarea">Encuentra la información acerca de tus titulos
                                         favoritos e incluso mas actuales junto con toda las noticias diarias que salen
@@ -271,8 +268,14 @@
     <div id="sidebar" class="sidebar">
         <h2>Carrito de Productos</h2>
         <div id="cart-items" class="cart-items"></div>
-        <p id="items-quantity"></p>
-        <button id="close-sidebar" class="sidebar-close">Cerrar</button>
+        <p id="items-quantity" class="items-quantity"></p>
+        <div class="bottom-container">
+            <button id="close-sidebar" class="sidebar-close">Cerrar</button>
+            <div class="final-price-container">
+                <p id="price-total" class="price"></p>
+                <button id="pay-items" class="pay-btn"> PAGAR </button>
+            </div>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"

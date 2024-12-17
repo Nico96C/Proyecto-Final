@@ -14,57 +14,110 @@ document.addEventListener("DOMContentLoaded", function () {
     //Llamado a la API//
     getGameById(gameId).then((data) => {
       console.log("Información del juego:", data);
-      console.log(data.ratings);
+      console.log(data.developers);
 
-      const descriptionRaw =
-        data.description_raw || "Descripción no disponible";
+      const developers =
+        data.developers && data.developers.length > 0
+          ? data.developers.map((dev) => `<p>${dev.name}</p>`).join("")
+          : "<p>No disponible</p>";
 
-      const descriptionInSpanish =
-        descriptionRaw.split("Español")[1]?.trim() || descriptionRaw;
+      const gamePrice = "60";
+
+      const descriptionRaw = data.description_raw;
+
+      const descriptionInSpanish = descriptionRaw.split("Español")[1]?.trim() || descriptionRaw;
+
+      const metacriticScore = data.metacritic || "Sin Puntaje";
+      let scoreClass = "";
+
+      if (metacriticScore >= 75) {
+        scoreClass = "green";
+      } else if (metacriticScore >= 50) {
+        scoreClass = "yellow";
+      } else if (metacriticScore < 50 && metacriticScore >= 0) {
+        scoreClass = "red";
+      }
 
       //Se renderiza en el contenedor//
       const gameDetailsContainer = document.getElementById("game-details");
       gameDetailsContainer.innerHTML = `
         <div class="container">
-        <div class="game-details-side">
-          <div class="game-img-container">
+          <h1 class="game-name-2">${data.name}</h1>
+          <div class="game-details-side">
+            <div class="game-img-container">
               <img src="${data.background_image}" alt="${
         data.name
       }" class="card-img-top">
-            <button class="add-item-btn-2" id="add-cart-game"> Agregar al Carrito </button>
+              <button class="add-item-btn-2" id="add-cart-game"> Agregar al Carrito </button>
+            </div>
+            <div class="card-body">
+              <h1 class="game-name">${data.name}</h1>
+              <h2 class="metacritic-media ${scoreClass}"> ${metacriticScore} </h2>
+              <p><strong>Fecha de lanzamiento:</strong> ${
+                data.released || "No disponible"
+              }</p>
+              <p><strong>Precio: ${gamePrice} $</strong></p>
+              <p><strong>Valoración:</strong> ${
+                data.rating + " / " + data.rating_top + " ⭐ " ||
+                "No disponible"
+              }</p>
+              <h2 class="developers-title"> Desarrolladores </h2>
+              <div class="developers-names">
+                ${developers}
+              </div>
+            </div>
           </div>
-          <div class="card-body">
-            <h1>${data.name}</h1>
-            <h2 class="metacritic-media"> ${data.metacritic} </h2>
-            <p><strong>Fecha de lanzamiento:</strong> ${
-              data.released || "No disponible"
-            }</p>
-            <p><strong>Rating:</strong> ${
-              data.rating + " / " + data.rating_top + " ⭐ " || "No disponible"
-            }</p>
-          </div>
-        </div>
           <div class="description">
-            <h2> Descripción </h2>
+            <h2> DESCRIPCIÓN </h2>
             <p class="description-text" id="description-text">
             ${descriptionInSpanish || "No disponible"}</p>
             <button class="toggle-btn" id="toggle-btn">Ver Más ▼</button>
           </div>
-          <div>
-            <p>
-              <span>${data.ratings[0].title}: ${data.ratings[0].percent}% (${
-        data.ratings[0].count
-      } votos)</span><br>
-              <span>${data.ratings[1].title}: ${data.ratings[1].percent}% (${
-        data.ratings[1].count
-      } votos)</span><br>
-              <span>${data.ratings[2].title}: ${data.ratings[2].percent}% (${
-        data.ratings[2].count
-      } votos)</span><br>
-              <span>${data.ratings[3].title}: ${data.ratings[3].percent}% (${
-        data.ratings[3].count
-      } votos)</span><br>
-            </p>
+          <h2 class="reviews-user"> RESEÑAS DE USUARIOS </h2>
+          <div class="section-reviews">
+            <div class="rating-bar">
+              <strong>${data.ratings[0].title.toUpperCase()}:</strong> ${
+        data.ratings[0].percent
+      }% (${data.ratings[0].count} votos)
+              <div class="progress-bar">
+                <div class="progress" style="width: ${
+                  data.ratings[0].percent
+                }%;"></div>
+              </div>
+            </div>
+
+            <div class="rating-bar">
+              <strong>${data.ratings[1].title.toUpperCase()}:</strong> ${
+        data.ratings[1].percent
+      }% (${data.ratings[1].count} votos)
+              <div class="progress-bar">
+                <div class="progress" style="width: ${
+                  data.ratings[1].percent
+                }%;"></div>
+              </div>
+            </div>
+
+            <div class="rating-bar">
+              <strong>${data.ratings[2].title.toUpperCase()}:</strong> ${
+        data.ratings[2].percent
+      }% (${data.ratings[2].count} votos)
+              <div class="progress-bar">
+                <div class="progress" style="width: ${
+                  data.ratings[2].percent
+                }%;"></div>
+              </div>
+            </div>
+
+            <div class="rating-bar">
+              <strong>${data.ratings[3].title.toUpperCase()}:</strong> ${
+        data.ratings[3].percent
+      }% (${data.ratings[3].count} votos)
+              <div class="progress-bar">
+                <div class="progress" style="width: ${
+                  data.ratings[3].percent
+                }%;"></div>
+              </div>
+            </div>
           </div>
         </div>
       `;
@@ -92,11 +145,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
           gameVideoContainer.innerHTML = `
           <div>
-            <video src="${videoUrl}" controls></video>
+            <video class="game-video" src="${videoUrl}" controls></video>
           </div>
         `;
         } else {
-          gameVideoContainer.innerHTML = `<p>No hay videos disponibles para este juego.</p>`;
+          gameVideoContainer.innerHTML = `<p class="video-null">No hay videos disponibles para este juego.</p>`;
         }
       })
       .catch((error) => {
