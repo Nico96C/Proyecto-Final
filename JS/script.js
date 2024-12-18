@@ -1,4 +1,5 @@
 import CONFIG from "../config.js";
+import { renderCart } from "./showCart.js";
 
 var currentPage = 1;
 
@@ -24,6 +25,9 @@ async function obtainGames(page = 1, pageSize = 20) {
 async function displayGames(page = 1) {
   const games = await obtainGames(page, 20);
   const gameList = document.getElementById("game-list");
+
+  console.log("Juegos obtenidos:");
+  console.log(games);
 
   setTimeout(() => {
     // Limpia los placeholders //
@@ -58,27 +62,6 @@ async function displayGames(page = 1) {
       gameList.appendChild(newDiv);
     });
   }, 2250);
-
-  function agregarAlCarrito(game) {
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-    const existe = cart.find((item) => item.id === game.id);
-
-    if (existe) {
-      alert(`${game.name} ya está en el carrito.`);
-    } else {
-      // Agregar el juego al carrito //
-      cart.push({
-        id: game.id,
-        name: game.name,
-        image: game.background_image,
-      });
-
-      // Guardar en localStorage //
-      localStorage.setItem("cart", JSON.stringify(cart));
-      alert(`${game.name} ha sido agregado al carrito.`);
-    }
-  }
 }
 
 /* BUSQUEDA JUEGOS POR INPUT */
@@ -142,8 +125,39 @@ function renderGames(games) {
           </div>
         </a>
     `;
+
+    const botonAgregar = div.querySelector(".add-item-btn");
+
+      botonAgregar.addEventListener("click", () => {
+        event.preventDefault();
+        event.stopPropagation();
+        agregarAlCarrito(game);
+      });
+
     gameList.appendChild(div);
   });
+}
+
+function agregarAlCarrito(game) {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  const existe = cart.find((item) => item.id === game.id);
+
+  if (existe) {
+    alert(`${game.name} ya está en el carrito.`);
+  } else {
+    // Agregar el juego al carrito //
+    cart.push({
+      id: game.id,
+      name: game.name,
+      image: game.background_image,
+    });
+
+    // Guardar en localStorage //
+    localStorage.setItem("cart", JSON.stringify(cart));
+    alert(`${game.name} ha sido agregado al carrito.`);
+    renderCart();
+  }
 }
 
 displayGames(currentPage); //Muestra juegos de cantidad de paginas actuales//

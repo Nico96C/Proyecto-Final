@@ -11,7 +11,7 @@ if (carritoButton) {
     cartItemsContainer.innerHTML = "";
 
     if (cart.length === 0) {
-      cartItemsContainer.innerHTML = "<p>El carrito está vacío.</p>";
+      cartItemsContainer.innerHTML = `<p class="empty-cart"> NO HAY PRODUCTOS </p>`;
       finalPrice.textContent = "Precio Final: 0 $";
       document.getElementById("items-quantity").textContent =
         "Cantidad de items: 0";
@@ -49,6 +49,7 @@ if (carritoButton) {
 
     sidebar.classList.add("show");
     overlay.classList.add("active");
+    renderCart();
   });
 }
 
@@ -58,13 +59,17 @@ function removeItemFromCart(index) {
   renderCart();
 }
 
-function renderCart() {
+export function renderCart() {
+
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
   if (cart.length === 0) {
-    cartItemsContainer.innerHTML = "<p>El carrito está vacío.</p>";
+    cartItemsContainer.innerHTML = `<p class="empty-cart"> NO HAY PRODUCTOS </p>`;
     finalPrice.textContent = "Precio Final: 0 $";
     document.getElementById("items-quantity").textContent =
       "Cantidad de items: 0";
   } else {
+    console.log("se esta renderizando..")
     cartItemsContainer.innerHTML = "";
     cart.forEach((item, index) => {
       const itemDiv = document.createElement("div");

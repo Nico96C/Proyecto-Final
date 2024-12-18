@@ -1,4 +1,5 @@
 import CONFIG from "../config.js";
+import { renderCart } from "./showCart.js";
 
 document.addEventListener("DOMContentLoaded", function () {
   //Parametro de la URL 'id'//
@@ -25,7 +26,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
       const descriptionRaw = data.description_raw;
 
-      const descriptionInSpanish = descriptionRaw.split("Español")[1]?.trim() || descriptionRaw;
+      const descriptionInSpanish =
+        descriptionRaw.split("Español")[1]?.trim() || descriptionRaw;
 
       const metacriticScore = data.metacritic || "Sin Puntaje";
       let scoreClass = "";
@@ -126,9 +128,20 @@ document.addEventListener("DOMContentLoaded", function () {
       const descriptionText = document.getElementById("description-text");
 
       toggleBtn.addEventListener("click", () => {
-        const isExpanded = descriptionText.style.webkitLineClamp === "unset";
-        descriptionText.style.webkitLineClamp = isExpanded ? "3" : "unset";
+        const currentHeight = getComputedStyle(descriptionText).maxHeight;
+        const isExpanded = currentHeight !== "70px";
+      
+        descriptionText.style.maxHeight = isExpanded ? "70px" : "600px";
         toggleBtn.textContent = isExpanded ? "Ver Más ▼" : "Ver Menos ▲";
+      
+        descriptionText.style.transition = "max-height 0.2s ease-in-out";
+      });
+
+      document.addEventListener("click", (event) => {
+        if (event.target && event.target.id === "add-cart-game") {
+          console.log("Botón clickeado desde delegación de eventos");
+          agregarAlCarrito(data);
+        }
       });
     });
 
@@ -155,13 +168,6 @@ document.addEventListener("DOMContentLoaded", function () {
       .catch((error) => {
         console.error("Error al obtener los videos del juego:", error);
       });
-
-    document.addEventListener("click", (event) => {
-      if (event.target && event.target.id === "add-cart-game") {
-        console.log("Botón clickeado desde delegación de eventos");
-        agregarAlCarrito(data);
-      }
-    });
   } else {
     console.log("No se proporcionó un ID de juego en la URL.");
   }
@@ -217,5 +223,6 @@ function agregarAlCarrito(game) {
     // Guardar en localStorage //
     localStorage.setItem("cart", JSON.stringify(cart));
     alert(`${game.name} ha sido agregado al carrito.`);
+    renderCart();
   }
 }

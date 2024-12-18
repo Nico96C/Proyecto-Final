@@ -126,9 +126,11 @@ button {
 
 .price {
   margin-bottom: 0 !important;
-  color: var(--color-secondary);
+  color: white;
   font-family: "Nunito", serif !important;
   font-weight: 600;
+  border-right: 1px solid white;
+  padding-right: 10px;
 }
 
 .pay-btn {
@@ -691,16 +693,15 @@ main .container {
 
 .description-text {
   text-align: center;
-  overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
   line-height: 1.5rem;
-  max-height: 600px !important;
-  transition: all 0.3s ease-in-out;
   color: white;
   font-weight: 600;
+  max-height: 70px;
+  overflow: hidden;
+  transition: max-height 0.2s ease-in-out;
 }
 
 .toggle-btn {
@@ -913,6 +914,106 @@ main .container {
   color: var(--color-secondary);
 }
 
+.empty-cart {
+  text-align: center;
+  color: var(--color-secondary);
+  font-family: "Nunito", serif !important;
+  font-style: normal;
+  font-size: 20px;
+}
+
+/* F.A.Q */
+
+.first-title {
+  text-align: center;
+  font-family: "Protest Revolution", sans-serif !important;
+  font-style: normal;
+  font-size: 3rem;
+  color: var(--color-secondary);
+  user-select: none;
+  -webkit-user-select: none;
+  margin-bottom: 3rem !important;
+}
+
+.sub-title {
+  text-align: center;
+  font-family: "Protest Revolution", sans-serif !important;
+  font-style: normal;
+  font-size: 2rem;
+  color: var(--color-secondary);
+  user-select: none;
+  -webkit-user-select: none;
+  margin-bottom: 5rem !important;
+}
+
+.accordion {
+  margin: 50px !important;
+  --bs-accordion-btn-focus-box-shadow: 0 0 0 0.2rem rgba(232, 69, 69, 0.3) !important;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: var(--color-secondary) !important;
+  color: white !important;
+  font-weight: 600;
+}
+
+.contact-title {
+  text-align: center;
+  font-family: "Protest Revolution", sans-serif !important;
+  font-style: normal;
+  font-size: 3rem;
+  color: var(--color-secondary);
+  user-select: none;
+  -webkit-user-select: none;
+  margin-bottom: 2rem !important;
+}
+
+.sub-title-contact {
+  text-align: center;
+  font-family: "Protest Revolution", sans-serif !important;
+  font-style: normal;
+  font-size: 2rem;
+  color: var(--color-secondary);
+  user-select: none;
+  -webkit-user-select: none;
+  margin-bottom: 2rem !important;
+}
+
+.form-contain {
+  border: 1px solid var(--color-secondary);
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.label {
+  color: var(--color-secondary);
+  font-family: "Nunito", serif !important;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.btn-send {
+  color: var(--color-secondary);
+  border: 1px solid var(--color-secondary);
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-family: "Nunito", serif !important;
+  font-weight: 700;
+  font-size: 16px;
+  font-style: normal;
+  cursor: pointer;
+  transition: color 0.5s ease;
+}
+
+.btn-send:hover {
+  color: white;
+}
+
 @keyframes scaleUp {
   0% {
     transform: scale(1);
@@ -934,6 +1035,11 @@ main .container {
 @media (max-width: 1200px) {
   .carousel-textarea {
     font-size: 14px;
+  }
+
+  .form-contain {
+    display: flex;
+    flex-direction: column;
   }
 }
 
@@ -1020,7 +1126,7 @@ main .container {
   }
 
   .carousel-textarea {
-    font-size: 10px;
+    font-size: 14px;
   }
 
   .input-group {
@@ -1052,6 +1158,10 @@ main .container {
 
   .game-video {
     max-width: 550px;
+  }
+
+  .game-button {
+    display: none;
   }
 }
 
@@ -1100,5 +1210,20 @@ main .container {
 
   .sidebar {
     width: 100%;
+  }
+
+  .first-title {
+    font-size: 2.5rem;
+    margin-bottom: 2.5rem !important;
+  }
+
+  .sub-title {
+    font-size: 1.5rem;
+    margin-bottom: 4rem !important;
+  }
+
+  .carousel-textarea {
+    font-size: 11px;
+    margin-bottom: 2.5rem !important;
   }
 }
