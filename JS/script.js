@@ -7,7 +7,6 @@ const searchInput = document.getElementById("search-input");
 const searchButton = document.getElementById("button-addon2");
 
 /* BUSQUEDA JUEGOS AL ENTRAR A PAGINA */
-
 async function obtainGames(page = 1, pageSize = 20) {
   const apiKey = CONFIG.API_KEY;
   const url = `https://api.rawg.io/api/games?key=${apiKey}&page=${page}&page_size=${pageSize}`;
@@ -144,20 +143,23 @@ function agregarAlCarrito(game) {
   const existe = cart.find((item) => item.id === game.id);
 
   if (existe) {
-    alert(`${game.name} ya está en el carrito.`);
+    existe.quantity += 1;
+    alert(`La cantidad de "${game.name}" ha sido incrementada a ${existe.quantity}.`);
   } else {
-    // Agregar el juego al carrito //
     cart.push({
       id: game.id,
       name: game.name,
       image: game.background_image,
+      quantity: 1,
     });
-
-    // Guardar en localStorage //
-    localStorage.setItem("cart", JSON.stringify(cart));
     alert(`${game.name} ha sido agregado al carrito.`);
-    renderCart();
   }
+
+  // Guardar en localStorage
+  localStorage.setItem("cart", JSON.stringify(cart));
+
+  // Renderizar el carrito (si tienes esta función definida)
+  renderCart();
 }
 
 displayGames(currentPage); //Muestra juegos de cantidad de paginas actuales//

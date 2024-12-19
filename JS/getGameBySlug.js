@@ -1,6 +1,7 @@
 import CONFIG from "../config.js";
 import { renderCart } from "./showCart.js";
 
+/* se hace la buscada del ID para el juego al cargar la pagina y traigo info */
 document.addEventListener("DOMContentLoaded", function () {
   //Parametro de la URL 'id'//
   function getGameIdFromUrl() {
@@ -145,6 +146,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
 
+    /* Funcion de videos y los coloco en el codigo */
     getVideoTrailers(gameId)
       .then((data) => {
         console.log("Los Videos del juego:", data);
@@ -172,6 +174,7 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("No se proporcionó un ID de juego en la URL.");
   }
 
+  /* Busco juegos apartir de la ID */
   function getGameById(id) {
     const apiKey = CONFIG.API_KEY;
 
@@ -188,6 +191,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .catch(() => console.log("Error al obtener el juego"));
   }
 
+  /* Busco los trailers de los juegos */
   function getVideoTrailers(id) {
     const apiKey = CONFIG.API_KEY;
 
@@ -205,24 +209,28 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+/* Agregar al carrito */
 function agregarAlCarrito(game) {
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
   const existe = cart.find((item) => item.id === game.id);
 
   if (existe) {
-    alert(`${game.name} ya está en el carrito.`);
+    existe.quantity += 1;
+    alert(`La cantidad de "${game.name}" ha sido incrementada a ${existe.quantity}.`);
   } else {
-    // Agregar el juego al carrito //
     cart.push({
       id: game.id,
       name: game.name,
       image: game.background_image,
+      quantity: 1,
     });
-
-    // Guardar en localStorage //
-    localStorage.setItem("cart", JSON.stringify(cart));
     alert(`${game.name} ha sido agregado al carrito.`);
-    renderCart();
   }
+
+  // Guardar en localStorage
+  localStorage.setItem("cart", JSON.stringify(cart));
+
+  // Renderizar el carrito (si tienes esta función definida)
+  renderCart();
 }

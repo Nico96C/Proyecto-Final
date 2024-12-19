@@ -24,7 +24,8 @@
 <body>
 
     <header>
-        <nav class="navbar navbar-expand-lg" style="background-color: var(--color-secondary); padding: 0px; padding-top: 10px;">
+        <nav class="navbar navbar-expand-lg"
+            style="background-color: var(--color-secondary); padding: 0px; padding-top: 10px;">
             <div class="container">
                 <a class="navbar-brand" href="/">
                     <img src="img/gameIcon.png" alt="icon" width="40" height="40">
@@ -38,10 +39,20 @@
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup" style="justify-content: center;">
                     <div class="navbar-nav" style="gap: 5rem;">
                         <a class="nav-link" href="/">HOME</a>
-                        <a class="nav-link" href="/news.html"> NOTICIAS </a>
-                        <a class="nav-link" href="#">ACERCA DE</a>
-                        <a class="nav-link" href="/FAQ.html">F.A.Q</a>
-                        <button class="nav-link" id="cart-show">CARRITO</button>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Noticias
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/news.html?id=1"> Ultima Noticia </a></li>
+                                <li><a class="dropdown-item" href="/news.html?id=8"> Wukong: Lo mas vendido </a></li>
+                                <li><a class="dropdown-item" href="/news.html?id=3"> Flight Simulator </a></li>
+                            </ul>
+                        </li>
+                        <a class="nav-link" href="/about.html"> ACERCA DE </a>
+                        <a class="nav-link" href="/FAQ.html"> F.A.Q </a>
+                        <button class="nav-link" id="cart-show"> CARRITO </button>
                     </div>
                 </div>
             </div>
@@ -155,9 +166,40 @@
             <button id="load-more" class="page-btn"> Siguiente </button>
         </div>
 
-        <footer>
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-info">
+                    <div class="title-footer">
+                        <img src="img/gameIcon.png" alt="icon" width="40" height="40">
+                        <p>GameStation</p>
+                    </div>
+                    <p>
+                        Somos una tienda especializada en videojuegos físicos y digitales.
+                        Encuentra las últimas noticias y los mejores productos para tu estilo gamer.
+                    </p>
+                    <div class="social-media">
+                        <a href="https://github.com/Nico96C/Proyecto-Final" target="_blank"><img
+                                src="img/footer-icons/Github_light.svg" alt="repositorio-Github" width="30"
+                                height="30" /></a>
+                        <a href="https://www.youtube.com/@nicolasfernandez8400" target="_blank"><img
+                                src="img/footer-icons/youtube.svg" alt="youtube-channel" width="30" height="30" /></a>
+                        <a href="https://www.instagram.com/megabits96/" target="_blank"><img
+                                src="img/footer-icons/Instagram_light.svg" alt="instagram" width="30" height="30" /></a>
+                    </div>
+                </div>
 
+                <nav class="footer-nav">
+                    <ul>
+                        <li><a href="/games.html">Productos</a></li>
+                        <li><a href="/news.html">Noticias</a></li>
+                        <li><a href="/about.html">Acerca de</a></li>
+                        <li><a href="/FAQ.html">FAQ</a></li>
+                    </ul>
+                </nav>
+            </div>
         </footer>
+        <div class="talento-tech"> (C) 2024 GameStation. Todos los derechos reservados / Proyecto Final Talento Tech
+            C24225 </div>
 
     </div>
 
@@ -181,6 +223,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="module" src="JS/getGameBySlug.js"></script>
     <script type="module" src="JS/script.js"></script>
     <script type="module" src="JS/showCart.js"></script>

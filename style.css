@@ -53,13 +53,6 @@ main {
   background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
 }
 
-footer {
-  width: 100%;
-  min-height: 15vh;
-  background-color: var(--color-secondary);
-  border-top: 2px solid black;
-}
-
 button {
   border: none;
   background-color: transparent !important;
@@ -143,6 +136,19 @@ button {
 }
 
 .pay-btn:hover {
+  color: white;
+}
+
+.more-less {
+  display: flex;
+  align-items: center;
+  color: #e84545;
+  font-weight: 600;
+  font-size: 20px;
+  transition: color 0.5s ease;
+}
+
+.more-less:hover {
   color: white;
 }
 
@@ -1014,6 +1020,206 @@ main .container {
   color: white;
 }
 
+/* ABOUT IT */
+
+.title-info {
+  text-align: center;
+  font-family: "Protest Revolution", sans-serif !important;
+  font-style: normal;
+  font-size: 3rem;
+  color: var(--color-secondary);
+  user-select: none;
+  -webkit-user-select: none;
+  margin-bottom: 2rem !important;
+}
+
+.text-infomation {
+  text-align: center;
+  font-family: "Nunito", serif !important;
+  font-style: normal;
+  font-size: 1.5rem;
+  color: var(--color-secondary);
+  user-select: none;
+  -webkit-user-select: none;
+  margin-bottom: 2rem !important;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 25%;
+  margin: auto;
+  margin-bottom: 3rem !important;
+  object-fit: cover;
+}
+
+.icons-code {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+.icons-code img {
+  width: 50px;
+  height: 50px;
+  transition: transform 0.3s;
+}
+
+.icons-code img:hover {
+  transform: scale(1.2);
+}
+
+/* NEWS */
+
+.news-title {
+  text-align: center;
+  font-family: "Protest Revolution", sans-serif !important;
+  font-style: normal;
+  font-size: 3rem;
+  color: var(--color-secondary);
+  user-select: none;
+  -webkit-user-select: none;
+  margin-bottom: 2rem !important;
+}
+
+.news-paragraph {
+  text-align: left;
+  font-family: "Nunito", serif !important;
+  font-style: normal;
+  font-size: 1.3rem;
+  color: var(--color-secondary);
+  user-select: none;
+  -webkit-user-select: none;
+  margin-bottom: 2rem !important;
+}
+
+.news-date {
+  text-align: right;
+  font-family: "Nunito", serif !important;
+  font-style: normal;
+  font-size: 1rem;
+  color: white;
+  user-select: none;
+  -webkit-user-select: none;
+  margin-bottom: 2rem !important;
+}
+
+.news-author {
+  text-align: right;
+  font-family: "Nunito", serif !important;
+  font-style: normal;
+  font-size: 1rem;
+  color: white;
+  user-select: none;
+  -webkit-user-select: none;
+  margin-bottom: 2rem !important;
+}
+
+.img-news-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4rem !important;
+}
+
+.news-img {
+  width: 65%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 5%;
+}
+
+/* FOOTER */
+
+.footer {
+  width: 100%;
+  min-height: 15vh;
+  background-color: var(--color-secondary);
+  border-top: 2px solid var(--color-tertiary);
+  padding: 15px 20px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-info {
+  flex: 1;
+  max-width: 60%;
+  font-size: 1rem;
+  line-height: 1.5;
+  font-family: "Nunito", serif !important;
+  font-weight: 400;
+}
+
+.footer-nav {
+  flex: 1;
+  text-align: right;
+}
+
+.footer-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-nav li {
+  margin-bottom: 5px;
+}
+
+.footer-nav a {
+  text-decoration: none;
+  color: #f5f5f5;
+  font-size: 1rem;
+  font-family: "Nunito", serif !important;
+  transition: color 0.3s;
+}
+
+.footer-nav a:hover {
+  color: var(--color-primary);
+}
+
+.title-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title-footer p {
+  margin-bottom: 0 !important;
+  font-family: "Protest Revolution", sans-serif !important;
+  font-size: 20px;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.social-media {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.talento-tech {
+  text-align: center;
+  background-color: #e84545;
+  font-family: "Nunito", serif !important;
+  padding: 0.5rem;
+}
+
+/* SweetButton */
+
+.swal2-confirm {
+  background-color: #4caf50 !important;
+  color: #fff !important;
+}
+
 @keyframes scaleUp {
   0% {
     transform: scale(1);
@@ -1163,6 +1369,15 @@ main .container {
   .game-button {
     display: none;
   }
+
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-nav {
+    text-align: center;
+  }
 }
 
 @media (max-width: 668px) {
@@ -1225,5 +1440,9 @@ main .container {
   .carousel-textarea {
     font-size: 11px;
     margin-bottom: 2.5rem !important;
+  }
+
+  .icons-code {
+    gap: 0.5rem;
   }
 }

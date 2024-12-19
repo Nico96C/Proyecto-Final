@@ -1,5 +1,21 @@
 # Proyecto: Tienda de Videojuegos
 
+— HTML Avanzado, etiquetado variado. ✔
+— CSS, estilos en una única hoja con MediaQuerys responsivas y estilos acordes. ✔
+— JavaScript, uso en funciones desde el uso del carrito, los fetch de datos tanto de API como del JSON. ✔
+— El versionado y Documentación integradas desde el uso de Git y GitHub para controlar el proyecto como ciertos detalles de obtención de datos. ✔
+
+— Formulario con campos necesarios y también pedir de requisito completar todos. ✔
+— Se implementado el uso de FlexBox, Grid y MediaQuerys en secciones (el único uso que quise darle a Grid es en la sección de Detalles de juego en las reseñas). ✔
+— La navegación esta lograda en cada sección junto con el uso de multimedia tanto estático en el mismo proyecto como traído tanto de API como de sitio de alojamiento. ✔
+— Proyecto subido a GitHub y en Netlify esta la versión en producción. ✔
+— El uso de visual para ver productos, manipulando el DOM para funciones y controlar el carrito.. Estructura del HTML. ✔
+— Carrito completo, desde añadir, eliminar, aumentar o disminuir cantidad. Aplica LocalStore para guardar cambios y tiene un total dinámico. ✔
+— Probada accesibilidad desde las imágenes, contenedores en el Head. ✔
+— Historial de cambios GitHub -
+
+— Proyecto Completo. ✔
+
 ## Características Principales ##
 
 - **Noticias Actualizadas:** 
