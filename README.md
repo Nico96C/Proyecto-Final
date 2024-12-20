@@ -85,9 +85,9 @@ Cada videojuego incluye:
 
 ## Repositorio y Web ##
 
-- **GitHub:** [Enlace al repositorio](#)
+- **GitHub:** https://github.com/Nico96C/Proyecto-Final
 
 ## URL del Proyecto en Producción
 
-- [Sitio Web](#)
+- https://proyecto-final-tt.netlify.app/ 
 
