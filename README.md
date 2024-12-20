@@ -16,6 +16,14 @@
 
 — Proyecto Completo. ✔
 
+## Documentación útil
+
+— API Consumida - https://api.rawg.io/docs/ — Mas información - https://rawg.io/apidocs
+    // Usa API_KEY para tener acceso, en este caso esta subida en el mismo GitHub en el archivo (Config.js) //
+— Bootstrap - https://getbootstrap.com/docs/5.3/getting-started/introduction/
+— Formspree para uso del formulario - https://formspree.io/
+— SweetAlert uso de algún botón - https://sweetalert2.github.io/
+
 ## Características Principales ##
 
 - **Noticias Actualizadas:** 
